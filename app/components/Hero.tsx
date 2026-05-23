@@ -25,9 +25,12 @@ export default function Hero() {
 
           <div className="flex gap-6">
 
-            <button className="glow-button px-6 py-3 rounded-full bg-cyan-500 text-black font-semibold">
+            <a
+              href="#projects"
+              className="glow-button px-6 py-3 rounded-full bg-cyan-500 text-black font-semibold inline-block"
+            >
               View Projects
-            </button>
+            </a>
 
             <a
               href="/resume.pdf"
