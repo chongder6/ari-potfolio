@@ -1,112 +1,213 @@
 @import "tailwindcss";
 
-:root {
-  --background: #07111F;
-  --foreground: #F8FAFC;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-.glow {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: #00c2ff30;
-  filter: blur(120px);
-  z-index: -1;
-}
-
-::selection {
-  background: #00c2ff;
-  color: black;
-}
-
-.card-hover {
-  transition: all 0.4s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 40px rgba(0, 194, 255, 0.15);
-}
-
-.gradient-border {
-  position: relative;
-}
-
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(0,194,255,0.5),
-    rgba(79,70,229,0.5)
-  );
-  
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  pointer-events: none;
-}
-.fade-bottom {
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    #07111F
-  );
-}
-
 body {
-  background:
-    radial-gradient(circle at top left, #0f172a, #07111F);
-}
 
+  color: white;
 
-a {
-  transition: all 0.3s ease;
-}
+  overflow-x: hidden;
 
-a:hover {
-  transform: translateY(-2px);
-}
-.glow-button {
-  box-shadow:
-    0 0 20px rgba(0,194,255,0.25);
-}
-
-.section-glow {
-  position: relative;
-}
-
-.section-glow::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
+  min-height: 100vh;
 
   background:
     radial-gradient(
-      circle at top right,
-      rgba(0,194,255,0.08),
-      transparent 40%
+      circle at top left,
+      rgba(255,255,255,0.04),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at bottom right,
+      rgba(255,255,255,0.03),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      135deg,
+      #050505 0%,
+      #0a0a0a 25%,
+      #111111 50%,
+      #0d0d0d 75%,
+      #050505 100%
+    );
+
+  background-attachment: fixed;
+
+}
+
+
+
+.card-hover {
+
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.5s ease,
+    border 0.5s ease;
+
+  backdrop-filter: blur(20px);
+
+  will-change: transform;
+
+}
+
+.card-hover:hover {
+
+  transform:
+    translateY(-14px)
+    scale(1.02);
+
+  background: rgba(255,255,255,0.05);
+
+  border-color: rgba(255,255,255,0.12);
+
+}
+
+.glow-button {
+
+  background: white;
+
+  color: black;
+
+  transition: all 0.3s ease;
+
+}
+
+.glow-button:hover {
+
+  transform: translateY(-3px);
+
+  opacity: 0.9;
+
+}
+
+::selection {
+
+  background: white;
+
+  color: black;
+
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+
+  background: #222;
+
+  border-radius: 999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+@keyframes slide1 {
+
+  0%,
+  30% {
+    opacity: 1;
+  }
+
+  33%,
+  100% {
+    opacity: 0;
+  }
+
+}
+
+@keyframes slide2 {
+
+  0%,
+  30% {
+    opacity: 0;
+  }
+
+  33%,
+  63% {
+    opacity: 1;
+  }
+
+  66%,
+  100% {
+    opacity: 0;
+  }
+
+}
+
+@keyframes slide3 {
+
+  0%,
+  63% {
+    opacity: 0;
+  }
+
+  66%,
+  96% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+.animate-slide1 {
+
+  animation: slide1 12s infinite;
+
+}
+
+.animate-slide2 {
+
+  animation: slide2 12s infinite;
+
+}
+
+.animate-slide3 {
+
+  animation: slide3 12s infinite;
+
+}
+
+body::after {
+
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  left: var(--x);
+  top: var(--y);
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.08) 0%,
+      rgba(255,255,255,0.03) 35%,
+      transparent 70%
     );
 
   pointer-events: none;
+
+  z-index: 9999;
+
+  transition:
+    left 0.08s linear,
+    top 0.08s linear;
+
 }

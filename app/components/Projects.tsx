@@ -29,7 +29,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-28 px-6"
+      className="relative z-10 py-28 px-6"
     >
 
       <div className="max-w-7xl mx-auto">
@@ -46,23 +46,42 @@ export default function Projects() {
 
         </div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="relative flex flex-col gap-32 mt-24">
 
           {projects.map((project, index) => (
 
             <div
               key={index}
               
-              className="card-hover rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden"
+              className={`
+                    card-hover
+                    relative
+                    overflow-hidden
+                    rounded-[2rem]
+                    border
+                    border-white/5
+                    bg-white/[0.03]
+                    backdrop-blur-2xl
+                    p-0
+                    transition-all
+                    duration-500
+
+                ${
+                    index % 2 === 0
+                    ? "md:ml-0 md:mr-32 rotate-[-2deg]"
+                    :"md:ml-32 md:mr-0 rotate-[2deg]"
+               }
+              `}
             >
 
               <div className="h-52 relative overflow-hidden">
 
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-indigo-500/20"></div>
-
+                <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 blur-[120px] rounded-full"></div>
+                <div className="absolute bottom-0 right-0 w-60 h-60 bg-white/5 blur-[100px] rounded-full"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
 
-                  <h2 className="text-4xl font-bold text-white/80">
+                  <h2 className="text-6xl md:text-7xl font-bold text-white/80">
                     {project.title}
                   </h2>
 

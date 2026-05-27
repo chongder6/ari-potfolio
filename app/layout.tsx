@@ -1,24 +1,14 @@
 import "./globals.css";
 
-import { Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 
-const inter = Inter({
+const space = Space_Grotesk({
   subsets: ["latin"],
 });
 
 export const metadata = {
-  title: "Arijit Chongder | AI Product Manager",
-  description:
-    "Portfolio of Arijit Chongder — AI Product Manager specializing in LLMs, analytics, and scalable digital products.",
-
-  keywords: [
-    "Product Manager",
-    "AI Product Manager",
-    "LLM",
-    "Portfolio",
-    "Product Strategy",
-    "Technical Product Manager",
-  ],
+  title: "Portfolio",
+  description: "Modern Portfolio",
 };
 
 export default function RootLayout({
@@ -28,9 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+
+      <body className={space.className}>
         {children}
+
+        
       </body>
+
     </html>
   );
 }

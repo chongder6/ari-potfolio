@@ -10,16 +10,21 @@ import BackgroundEffects from "./components/BackgroundEffects";
 import ScrollProgress from "./components/ScrollProgress";
 import MouseGlow from "./components/MouseGlow";
 import Particles from "./components/Particles";
+import CursorGlow from "./components/CursorGlow";
 
 export default function Home() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="text-white">
 
+      <CursorGlow />
+      
+      <Particles />
+      
       <BackgroundEffects />
 
       <MouseGlow />
 
-      <Particles />
+      <Navbar />
       
       <ScrollProgress />
 

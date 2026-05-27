@@ -1,59 +1,89 @@
 "use client";
 
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+const navItems = [
+  "About",
+  "Projects",
+  "Experience",
+  "Skills",
+  "Contact",
+];
 
 export default function Navbar() {
-
-  const [open, setOpen] = useState(false);
-
   return (
-    <nav className="fixed top-0 w-full z-50 backdrop-blur-2xl bg-[#07111F]/60 border-b border-white/10 shadow-lg">
 
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
 
-        <h1 className="text-xl font-bold tracking-wide">
-          Arijit.
-        </h1>
+      <nav
+        className="
+          flex
+          items-center
+          gap-2
 
-        <div className="hidden md:flex gap-8 text-sm text-gray-300">
-          <a href="#about" className="hover:text-cyan-400 transition">
-            About
-          </a>
+          px-4
+          py-3
 
-          <a href="#projects" className="hover:text-cyan-400 transition">
-            Projects
-          </a>
+          rounded-full
 
-          <a href="#experience" className="hover:text-cyan-400 transition">
-            Experience
-          </a>
+          border
+          border-white/10
 
-          <a href="#contact" className="hover:text-cyan-400 transition">
-            Contact
-          </a>
-        </div>
+          bg-white/[0.03]
 
-        <button
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
+          backdrop-blur-2xl
+
+          shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+        "
+      >
+
+        <div
+          className="
+            px-5
+            py-2
+
+            rounded-full
+
+            bg-white
+
+            text-black
+
+            text-sm
+            font-medium
+
+            tracking-wide
+          "
         >
-          {open ? <X /> : <Menu />}
-        </button>
-
-      </div>
-
-      {open && (
-        <div className="md:hidden px-6 pb-6 flex flex-col gap-4 text-gray-300 bg-[#07111F]">
-
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-
+          IKIRYO
         </div>
-      )}
 
-    </nav>
+        {navItems.map((item) => (
+
+          <a
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className="
+              px-5
+              py-2
+
+              rounded-full
+
+              text-sm
+              text-white/70
+
+              transition-all
+              duration-300
+
+              hover:text-white
+              hover:bg-white/[0.05]
+            "
+          >
+            {item}
+          </a>
+
+        ))}
+
+      </nav>
+
+    </header>
+
   );
 }
