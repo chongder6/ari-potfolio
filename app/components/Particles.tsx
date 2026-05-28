@@ -37,7 +37,7 @@ export default function Particles() {
     const particles = Array.from({ length: 100 }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: 6,
+      radius: Math.random() * 1.2 + 0.4,
       vx: (Math.random() - 0.5) * 0.5,
       vy: (Math.random() - 0.5) * 0.5,
     }));
@@ -76,7 +76,7 @@ export default function Particles() {
           Math.PI * 2
         );
 
-        context.fillStyle = "red";;
+        context.fillStyle = "rgba(207, 205, 205, 0.35)";
 
         context.fill();
 
@@ -106,7 +106,7 @@ export default function Particles() {
         width: "100%",
         height: "100%",
         pointerEvents: "none",
-        zIndex: 999,
+        zIndex: -1,
       }}
     />
   );

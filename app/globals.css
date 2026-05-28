@@ -182,32 +182,4 @@ body {
 
 body::after {
 
-  content: "";
-
-  position: fixed;
-
-  width: 500px;
-  height: 500px;
-
-  left: var(--x);
-  top: var(--y);
-
-  transform: translate(-50%, -50%);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,255,255,0.08) 0%,
-      rgba(255,255,255,0.03) 35%,
-      transparent 70%
-    );
-
-  pointer-events: none;
-
-  z-index: 9999;
-
-  transition:
-    left 0.08s linear,
-    top 0.08s linear;
-
 }

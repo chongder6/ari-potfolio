@@ -10,13 +10,12 @@ import BackgroundEffects from "./components/BackgroundEffects";
 import ScrollProgress from "./components/ScrollProgress";
 import MouseGlow from "./components/MouseGlow";
 import Particles from "./components/Particles";
-import CursorGlow from "./components/CursorGlow";
+
 
 export default function Home() {
   return (
-    <main className="text-white">
+    <main className="relative z-10 text-white">
 
-      <CursorGlow />
       
       <Particles />
       
@@ -27,8 +26,6 @@ export default function Home() {
       <Navbar />
       
       <ScrollProgress />
-
-      <Navbar />
 
       <Hero />
 
